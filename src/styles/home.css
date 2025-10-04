@@ -1,0 +1,15 @@
+main {
+	background-color: var(--c-background);
+}
+
+header {
+	display: grid;
+	grid-template-columns: 440px 1fr;
+	grid-template-rows: auto;
+}
+
+header h1 {
+	padding: 20px;
+	margin: 20px;
+	border: 4px solid #FC3D21;
+}

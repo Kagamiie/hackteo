@@ -37,7 +37,6 @@ input:focus {
 
 .surface {
     background-color: var(--c-surface);
-    width: fit-content;
     padding: 8px;
     border-radius: var(--br-hard);
 }
