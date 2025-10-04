@@ -2,10 +2,15 @@ import { useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "../styles/map.css";
+import type { LatLng } from "leaflet";
 
-function MapClick({ onSelect }) {
+type propsClick = {
+  onSelect: (value:LatLng) => void;
+}
+
+function MapClick(props: propsClick) {
   useMapEvents({
-    click: (e) => onSelect(e.latlng),
+    click: (e) => props.onSelect(e.latlng),
   });
   return null;
 }

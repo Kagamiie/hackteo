@@ -1,0 +1,49 @@
+.parameters > .card {
+    background-color: var(--c-surface);
+    border-radius: var(--br-interactible);
+    overflow: hidden;
+    width: 1fr;
+    gap: 16px;
+}
+
+.parameters > .card > .value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    gap: 16px;
+}
+
+.parameters > .card > .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--c-secondary);
+    padding: 16px;
+}
+
+.parameters {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+
+
+.dates > .card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--br-hard);
+    color: var(--c-txt-s);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.dates {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}

@@ -17,6 +17,12 @@
     --br-sm: 8px;
     --br-md: 12px;
     --br-lg: 20px;
+
+
+    --c-secondary: #6366f1;
+    --c-txt-s: #000;
+    --br-interactible: 16px;
+    --br-hard: 8px;
 }
 
 * {
