@@ -21,6 +21,11 @@ export default function Map() {
         date: selectedDate,
       });
       alert("TEST");
+      localStorage.setItem("paramsLat", pos[0])
+      localStorage.setItem("paramsLong", pos[1])
+      localStorage.setItem("paramsDate", selectedDate)
+
+
       // Ici tu peux faire ton appel API
     }
   };
@@ -50,8 +55,7 @@ export default function Map() {
           <label>📌 Location Name</label>
           <input
             type="text"
-            value={pos}
-            onChange={(e) => setLocation(e.target.value)}
+            value={pos} // https://developers.google.com/maps/documentation/geocoding/?csw=1#ReverseGeocoding
             placeholder="e.g., Yosemite National Park"
             className="input-map"
           />
