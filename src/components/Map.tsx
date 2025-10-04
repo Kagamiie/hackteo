@@ -11,17 +11,16 @@ function MapClick({ onSelect }) {
 }
 
 export default function Map() {
-  const [pos, setPos] = useState(null);
-  const [location, setLocation] = useState("");
+  const [pos, setPos] = useState({ lat: 48.856, lng: 2.352 });
   const [selectedDate, setSelectedDate] = useState("");
 
   const handleSubmit = () => {
-    if (pos && location && selectedDate) {
+    if (pos && selectedDate) {
       console.log({
         coordinates: pos,
-        location,
         date: selectedDate,
       });
+      alert("TEST");
       // Ici tu peux faire ton appel API
     }
   };
@@ -51,7 +50,7 @@ export default function Map() {
           <label>📌 Location Name</label>
           <input
             type="text"
-            value={location}
+            value={pos}
             onChange={(e) => setLocation(e.target.value)}
             placeholder="e.g., Yosemite National Park"
             className="input-map"
@@ -72,7 +71,7 @@ export default function Map() {
       <button
         className="submit-button"
         onClick={handleSubmit}
-        disabled={!pos || !location || !selectedDate}
+        disabled={!pos || !selectedDate}
       >
         🚀 Get Weather Forecast
       </button>

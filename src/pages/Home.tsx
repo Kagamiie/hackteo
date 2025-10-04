@@ -3,7 +3,7 @@ import Surface from "../components/Surface";
 
 function Home() {
   return (
-    <body>
+    <div>
       <header>
         <img className="logo" src="src\assets\NasaSA_logo.png" alt="logo" />
         <h1>🌤️ Météo Pro | Oxc4t Presents</h1>
@@ -13,7 +13,7 @@ function Home() {
         <h1>Will it rain on my parade</h1>
         <p>An app that absolutely will not work lolololol</p>
       </main>
-    </body>
+    </div>
   );
 }
 
