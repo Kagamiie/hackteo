@@ -55,8 +55,7 @@ export default function Map() {
           <label>📌 Location Name</label>
           <input
             type="text"
-            value={pos}
-            onChange={(e) => setLocation(e.target.value)}
+            value={pos} // https://developers.google.com/maps/documentation/geocoding/?csw=1#ReverseGeocoding
             placeholder="e.g., Yosemite National Park"
             className="input-map"
           />
