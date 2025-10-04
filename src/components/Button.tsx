@@ -1,12 +1,12 @@
 type propsButton = {
-  name: string;
+  children: React.ReactNode;
   click: () => void;
 };
 
 function Button(props: propsButton) {
   return (
     <button onClick={props.click}>
-      <h1>{props.name}</h1>
+      <h1>{props.children}</h1>
     </button>
   );
 }
