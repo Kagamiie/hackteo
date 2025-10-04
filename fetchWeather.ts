@@ -1,13 +1,19 @@
 import { fetchWeatherApi } from 'openmeteo';
-// import { paramsLat, paramsLong, paramsDate } from 'là où elles seront'
+try {
+	const paramsLat = localStorage.getItem("paramsLat")
+	const paramsLong = localStorage.getItem("paramsLong")
+	const paramsDate = localStorage.getItem("paramsDate")
+} catch (error) {
+	console.log(error)
+}
 
 const params = {
-	"latitude": 52.52, // paramslat
-	"longitude": 13.41, // paramslong
+	"latitude": 52.52, // paramsLat
+	"longitude": 13.41, // paramsLong
 	"hourly": ["temperature_2m", "relative_humidity_2m", "precipitation", "wind_speed_10m", "surface_pressure"],
 	"timezone": "auto",
 	"start_date": "2025-10-04", // paramsDate
-	"end_date": "2025-10-04", // paramsLong
+	"end_date": "2025-10-04", // paramsDate
 };
 const url = "https://api.open-meteo.com/v1/forecast";
 const responses = await fetchWeatherApi(url, params);

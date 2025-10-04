@@ -21,6 +21,11 @@ export default function Map() {
         date: selectedDate,
       });
       alert("TEST");
+      localStorage.setItem("paramsLat", pos[0])
+      localStorage.setItem("paramsLong", pos[1])
+      localStorage.setItem("paramsDate", selectedDate)
+
+
       // Ici tu peux faire ton appel API
     }
   };
