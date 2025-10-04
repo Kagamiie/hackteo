@@ -1,42 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 :root {
-    --c-interactive: #007aff;
-    --c-surface:#1b2b85;
-    --c-background: #151622;
-    --c-txt: #fff;
-    --br-interactible: 16px; /*Interactive radius*/
-    --br-hard: 8px; /*Surfaces radius*/
+    --c-primary: #6366f1;
+    --c-primary-dark: #4f46e5;
+    --c-surface: rgba(255, 255, 255, 0.05);
+    --c-surface-hover: rgba(255, 255, 255, 0.1);
+    --c-background: #0f0f23;
+    --c-background-secondary: #1a1a2e;
+    --c-txt: #ffffff;
+    --c-txt-secondary: #a0a0b8;
+    --c-accent: #10b981;
+    --c-warning: #f59e0b;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --br-sm: 8px;
+    --br-md: 12px;
+    --br-lg: 20px;
 }
 
-html {
-    font-family: "Roboto", sans-serif;
-    color: var(--c-txt);
-    background-color: var(--c-background);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html,
 body {
-    padding: 0px;
-    margin: 0px;
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+    color: var(--c-txt);
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-input {
-    padding: 8px;
-    margin: 8px;
-    border-radius: var(--br-hard);
-
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(99, 102, 241, 0.15) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(16, 185, 129, 0.1) 0%,
+            transparent 50%
+        );
+    animation: rotate 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
 }
 
-input:focus {
-    outline: none;
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.input > .underline {
-    width: 100%;
-    height: 2px;
-    background: var(--c-interactive);
+#root {
+    position: relative;
+    z-index: 1;
 }
 
+/* Navigation Header */
+header {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+}
+
+header > div {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header img {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.6));
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Container principal */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Surface Cards */
 .surface {
-    background-color: var(--c-surface);
-    padding: 8px;
-    border-radius: var(--br-hard);
+    background: var(--c-surface);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--br-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.surface:hover {
+    background: var(--c-surface-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(
+        135deg,
+        var(--c-primary) 0%,
+        var(--c-primary-dark) 100%
+    );
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: var(--br-md);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+/* Inputs */
+input[type="text"] {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: var(--c-txt);
+    padding: 1rem 1.5rem;
+    border-radius: var(--br-md);
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--c-primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+input[type="text"]::placeholder {
+    color: var(--c-txt-secondary);
+}
+
+/* Map Container */
+.leaflet-container {
+    border-radius: var(--br-lg);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* Map Info Box */
+.map-info {
+    background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.2) 0%,
+        rgba(16, 185, 129, 0.2) 100%
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 1.5rem;
+    border-radius: var(--br-md);
+    margin-bottom: 1.5rem;
+    font-family: "Courier New", monospace;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
