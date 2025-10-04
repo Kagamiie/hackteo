@@ -1,3 +1,11 @@
 :root {
+    --c-surface: #007aff;
+    --c-background: #151622;
+    --c-txt: #fff;
+}
 
+html {
+    font-family: "Roboto", sans-serif;
+    color: var(--c-txt);
+    background-color: var(--c-background);
 }
