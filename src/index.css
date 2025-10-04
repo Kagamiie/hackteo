@@ -3,10 +3,41 @@
     --c-surface:#1b2b85;
     --c-background: #151622;
     --c-txt: #fff;
+    --br-interactible: 16px; /*Interactive radius*/
+    --br-hard: 8px; /*Surfaces radius*/
 }
 
 html {
     font-family: "Roboto", sans-serif;
     color: var(--c-txt);
     background-color: var(--c-background);
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+input {
+    padding: 8px;
+    margin: 8px;
+    border-radius: var(--br-hard);
+
+}
+
+input:focus {
+    outline: none;
+}
+
+.input > .underline {
+    width: 100%;
+    height: 2px;
+    background: var(--c-interactive);
+}
+
+.surface {
+    background-color: var(--c-surface);
+    width: fit-content;
+    padding: 8px;
+    border-radius: var(--br-hard);
 }
