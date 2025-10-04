@@ -10,6 +10,15 @@ function MapClick({ onSelect }) {
   return null;
 }
 
+async function fetchGeocoding(value:string) { // NetworkError à débugger.
+  const variable = value.toString()
+  const geocode = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${variable}&count=1&language=en&format=json`, {mode: 'cors', headers: {'Access-Control-Allow-Origin':'*'}})
+  console.log(geocode)
+  const geoname = geocode.results.name
+  return geoname
+}
+
+
 export default function Map() {
   const [pos, setPos] = useState({ lat: 48.856, lng: 2.352 });
   const [selectedDate, setSelectedDate] = useState("");
@@ -34,7 +43,7 @@ export default function Map() {
     <div className="map-container">
       {pos && (
         <div className="coordinates-display">
-          📍 Lat: {pos.lat.toFixed(6)} • Lng: {pos.lng.toFixed(6)}
+          📍 Lat: {pos.lat.toFixed(3)} • Lng: {pos.lng.toFixed(3)}
         </div>
       )}
 
@@ -56,6 +65,17 @@ export default function Map() {
           <input
             type="text"
             value={pos} // https://developers.google.com/maps/documentation/geocoding/?csw=1#ReverseGeocoding
+            placeholder="lat: 48.856, lng: 2.352"
+            className="input-map"
+          />
+        </div>
+
+        <div className="geocoding-card">
+          <label>Geocoding</label>
+          <input
+            type="text"
+            value={"d"}
+            onChange={e => fetchGeocoding(e)}
             placeholder="e.g., Yosemite National Park"
             className="input-map"
           />
