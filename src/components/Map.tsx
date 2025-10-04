@@ -11,7 +11,7 @@ function MapClick({ onSelect }) {
 }
 
 export default function Map() {
-  const [pos, setPos] = useState(null);
+  const [pos, setPos] = useState({ lat: 48.856, lng: 2.352 });
   const [location, setLocation] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -51,7 +51,7 @@ export default function Map() {
           <label>📌 Location Name</label>
           <input
             type="text"
-            value={location}
+            value={pos}
             onChange={(e) => setLocation(e.target.value)}
             placeholder="e.g., Yosemite National Park"
             className="input-map"
