@@ -1,5 +1,6 @@
 :root {
-    --c-surface: #007aff;
+    --c-interactive: #007aff;
+    --c-surface:#1b2b85;
     --c-background: #151622;
     --c-txt: #fff;
 }
