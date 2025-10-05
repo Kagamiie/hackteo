@@ -1,16 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
+    /*Colors*/
     --c-primary: #6366f1;
     --c-primary-dark: #4f46e5;
+    --c-border: #a0a0b8;
     --c-surface: rgba(255, 255, 255, 0.05);
     --c-surface-hover: rgba(255, 255, 255, 0.1);
     --c-background: #0f0f23;
-    --c-background-secondary: #1a1a2e;
     --c-txt: #ffffff;
+    /*Colors end*/
+
+    --c-background-secondary: #1a1a2e;
     --c-txt-secondary: #a0a0b8;
-    --c-accent: #10b981;
-    --c-warning: #f59e0b;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -21,27 +23,39 @@
 
     --c-secondary: #6366f1;
     --c-txt-s: #000;
+    /*Border Radius*/
     --br-interactible: 16px;
     --br-hard: 8px;
+    --ma-sm: 8px;
+    --ma-m: 16px;
+
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+#root {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
 }
 
-html,
-body {
+html {
     font-family:
         "Inter",
         -apple-system,
         BlinkMacSystemFont,
         sans-serif;
     color: var(--c-txt);
+    
+}
+
+body {
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+    margin: 0;
+}
+
+html,
+body {
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 body::before {
@@ -74,11 +88,6 @@ body::before {
     100% {
         transform: rotate(360deg);
     }
-}
-
-#root {
-    position: relative;
-    z-index: 1;
 }
 
 /* Navigation Header */
@@ -197,17 +206,19 @@ button h1 {
     z-index: 1;
 }
 
+input {
+    color: var(--c-txt)
+}
+
 /* Inputs */
 input[type="text"] {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    color: var(--c-txt);
-    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    padding: var(--ma-sm);
     border-radius: var(--br-md);
-    font-size: 1rem;
     width: 100%;
     transition: all 0.3s ease;
-    font-family: inherit;
 }
 
 input[type="text"]:focus {

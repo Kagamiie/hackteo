@@ -1,0 +1,34 @@
+import { useState } from "react";
+import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
+import type { LatLng } from "leaflet";
+
+
+type propsClick = {
+  onSelect: (value:LatLng) => void;
+}
+
+function MapClick(props: propsClick) {
+  useMapEvents({
+    click: (e) => props.onSelect(e.latlng),
+  });
+  return null;
+}
+
+function MapBox() {
+  const [pos, setPos] = useState({ lat: 48.856, lng: 2.352 });
+  const [selectedDate, setSelectedDate] = useState("");
+
+    return(
+        <MapContainer
+            center={[48.856, 2.352]}
+            zoom={13}
+            style={{ height: "100%", width: "100%" }}
+        >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <MapClick onSelect={setPos} />
+            {pos && <Marker position={pos} />}
+        </MapContainer>
+    )
+}
+
+export default MapBox;
