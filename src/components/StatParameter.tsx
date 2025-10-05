@@ -1,3 +1,5 @@
+import Icon from './Icon';
+
 type propsParameter = {
     value: string,
     name: string,
@@ -8,7 +10,7 @@ function StatParameter(props: propsParameter) {
     return (
         <div className="card">
             <div className="value">
-                <img src={props.icon}></img>
+                <Icon src={`/icons/${props.icon}.svg`} background="var(--c-txt)"></Icon>
                 <p>{props.value}</p>
             </div>
             <div className="name">

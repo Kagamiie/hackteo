@@ -4,13 +4,40 @@ import {CartesianGrid, LineChart, XAxis, Tooltip, Line, ResponsiveContainer} fro
 type dataPoint = {
     name: string,
     pv: number,
-    amt: number,
 }
 
 type propsChart = {
     datas: dataPoint[];
 }
 
+type CustomTooltipProps = {
+  active?: boolean;
+  label?: string;
+  payload?: {
+    value: number;
+    name: string;
+  };
+};
+
+
+function CustomTooltip(props: CustomTooltipProps) {
+
+    const isVisible = props.active && props.payload;
+    const value:any = (props.payload as any)?.[0]?.value ?? '';
+
+    return (
+    <div className="tooltip" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
+        {isVisible && (
+        <>
+            <div style={{margin: 0}}> 
+                <p className="label" style={{margin: 0}}>{`${props.label}`}</p>
+                <p className="value" style={{margin: 0}}>{`${value}`}</p>
+            </div>
+        </>
+        )}
+    </div>
+    );
+};
 
 function StatChart(props: propsChart) {
     const datas = props.datas
@@ -18,12 +45,11 @@ function StatChart(props: propsChart) {
     return (
         <div>
             <ResponsiveContainer width="100%" height={300}>
-
                 <LineChart data={datas} margin={{top: 5,right: 30,left: 20,bottom: 5,}}>
                     <XAxis dataKey="name"/>
-                    <Tooltip/>
-                    <CartesianGrid stroke="#fff"/>
-                    <Line type="monotone" dataKey="pv" stroke="#fff" activeDot={{r:4}}/>
+                    <Tooltip content={<CustomTooltip/>}/>
+                    <CartesianGrid stroke="var(--c-primary)"/>
+                    <Line type="monotone" dataKey="pv" stroke="var(--c-txt)" activeDot={{r:4}}/>
                 </LineChart>
             </ResponsiveContainer>
         </div>

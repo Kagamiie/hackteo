@@ -7,6 +7,5 @@ import Map from "./components/Map";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Weather />
-    <Map></Map>
   </StrictMode>,
 );

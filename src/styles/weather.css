@@ -74,3 +74,18 @@
     padding: var(--ma-m);
     box-sizing: border-box;
 }
+
+.map text {
+    color: var(--c-txt);
+}
+
+.chart .tooltip {
+    padding: var(--ma-m);
+    gap: 0px;
+    background-color: #000;
+}
+
+.chart .tooltip > div {
+    display: flex;
+    flex-direction: column;
+}
