@@ -1,17 +1,18 @@
 import Button from "./Button";
 import TextLine from "./TextLine";
 
-function Parameters() {
+type propsParameters = {
+    clickUpdate : () => void;
+}
+
+function Parameters(props: propsParameters) {
     return (
-        <div style={
-            {
+        <div style={{
                 padding:'var(--ma-md)', boxSizing:'border-box',
-                display:'flex', flexDirection:'row', gap: 'var(--ma-sm)'
-                
-            }
-        }>
+                display:'flex', flexDirection:'row', gap: 'var(--ma-sm)'  
+            }}>
             <TextLine placeholder="Enter valid address"></TextLine>
-            <Button><p>Detect</p></Button>
+            <Button click={props.clickUpdate}><p>Detect</p></Button>
         </div>
     )
 }

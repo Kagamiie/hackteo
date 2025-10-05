@@ -52,22 +52,30 @@ h1, h2, p {
     margin: 2px;
 }
 
+button {
+    border-radius: var(--br-interactible);
+    background-color: var(--c-primary);
+    border: var(--c-primary-dark) 2px solid;
+}
+
 /* Inputs */
 input[type="text"] {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: var(--c-surface);
+    border: 2px solid var(--c-border);
     box-sizing: border-box;
     padding: var(--ma-sm);
-    border-radius: var(--br-md);
+    border-radius: var(--br-interactible);
     width: 100%;
-    transition: all 0.3s ease;
+    transition: 0.3s border;
+    color: var(--c-txt)
 }
 
 input[type="text"]:focus {
-    outline: none;
     border-color: var(--c-primary);
+    background: var(--c-surface);
     background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    box-shadow: var(--shadow-md);
+    outline: none;
 }
 
 input[type="text"]::placeholder {

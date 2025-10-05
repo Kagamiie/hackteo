@@ -3,20 +3,27 @@ import '../styles/weather.css'
 import StatParameter from "../components/StatParameter";
 import StatChart from '../components/StatChart';
 import MapBox from '../components/MapBox';
+import type { MapBoxHandle } from '../components/MapBox';
 import Parameters from '../components/Parameters';
 
 
+import { useRef } from "react";
+
 function Weather() {
+    const mapBoxRef = useRef<MapBoxHandle>(null);
 
-
-
+    const handleUpdate = () => {
+        if (mapBoxRef.current) {
+            mapBoxRef.current.handleSubmit();
+        }
+    };
 
     return (
         <div className="main">
             <div className="left">
-                <Parameters></Parameters>
+                <Parameters clickUpdate={handleUpdate}></Parameters>
                 <div className="map">
-                    <MapBox></MapBox>
+                    <MapBox ref={mapBoxRef}></MapBox>
                 </div>
             </div>
             <div className="right">
@@ -43,8 +50,7 @@ function Weather() {
                 </div>
             </div>
         </div>
-        
-    )
+    );
 }
 
 export default Weather;

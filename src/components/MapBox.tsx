@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, forwardRef, useImperativeHandle } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import type { LatLng } from "leaflet";
 
@@ -14,7 +14,11 @@ function MapClick(props: propsClick) {
   return null;
 }
 
-function MapBox() {
+export type MapBoxHandle = {
+  handleSubmit: () => void;
+};
+
+const MapBox = forwardRef<MapBoxHandle>((props, ref) => {
   const [pos, setPos] = useState({ lat: 48.856, lng: 2.352 });
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -24,27 +28,29 @@ function MapBox() {
         coordinates: pos,
         date: selectedDate,
       });
-    alert("TEST");
-    localStorage.setItem("paramsLat", String(pos.lat))
-    localStorage.setItem("paramsLong", String(pos.lng))
-    localStorage.setItem("paramsDate", selectedDate)
-
-
+      alert("TEST");
+      localStorage.setItem("paramsLat", String(pos.lat));
+      localStorage.setItem("paramsLong", String(pos.lng));
+      localStorage.setItem("paramsDate", selectedDate);
       // Ici tu peux faire ton appel API
     }
   };
 
-    return(
-        <MapContainer
-            center={[48.856, 2.352]}
-            zoom={10}
-            style={{ height: "100%", width: "100%" }}
-        >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <MapClick onSelect={setPos} />
-        {pos && <Marker position={pos} />}
-        </MapContainer>
-    )
-}
+  useImperativeHandle(ref, () => ({
+    handleSubmit,
+  }));
+
+  return (
+    <MapContainer
+      center={[48.856, 2.352]}
+      zoom={10}
+      style={{ height: "100%", width: "100%" }}
+    >
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <MapClick onSelect={setPos} />
+      {pos && <Marker position={pos} />}
+    </MapContainer>
+  );
+});
 
 export default MapBox;
