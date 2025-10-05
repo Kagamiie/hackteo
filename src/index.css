@@ -16,18 +16,14 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --br-sm: 8px;
-    --br-md: 12px;
-    --br-lg: 20px;
 
 
-    --c-secondary: #6366f1;
-    --c-txt-s: #000;
-    /*Border Radius*/
+    /*Border Radiuses*/
     --br-interactible: 16px;
     --br-hard: 8px;
+    /*Margins */
     --ma-sm: 8px;
-    --ma-m: 16px;
+    --ma-md: 16px;
 
 }
 
@@ -35,7 +31,6 @@
     position: absolute;
     width: 100%;
     height: 100%;
-
 }
 
 html {
@@ -45,7 +40,7 @@ html {
         BlinkMacSystemFont,
         sans-serif;
     color: var(--c-txt);
-    
+    background-color: var(--c-background);   
 }
 
 body {
@@ -53,161 +48,8 @@ body {
     margin: 0;
 }
 
-html,
-body {
-    min-height: 100vh;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background:
-        radial-gradient(
-            circle at 20% 50%,
-            rgba(99, 102, 241, 0.15) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(16, 185, 129, 0.1) 0%,
-            transparent 50%
-        );
-    animation: rotate 30s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Navigation Header */
-header {
-    background: rgba(26, 26, 46, 0.8);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-md);
-}
-
-header > div {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-header img {
-    width: 48px;
-    height: 48px;
-    filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.6));
-}
-
-header h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background-color: white;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Container principal */
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* Surface Cards */
-.surface {
-    background: var(--c-surface);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--br-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.surface:hover {
-    background: var(--c-surface-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(99, 102, 241, 0.3);
-}
-
-/* Buttons */
-button {
-    background: linear-gradient(
-        135deg,
-        var(--c-primary) 0%,
-        var(--c-primary-dark) 100%
-    );
-    color: white;
-    border: none;
-    padding: 0.875rem 2rem;
-    border-radius: var(--br-md);
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-    position: relative;
-    overflow: hidden;
-}
-
-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
-    transition: left 0.5s;
-}
-
-button:hover::before {
-    left: 100%;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-button h1 {
-    font-size: 1rem;
-    font-weight: 600;
-    position: relative;
-    z-index: 1;
-}
-
-input {
-    color: var(--c-txt)
+h1, h2, p {
+    margin: 2px;
 }
 
 /* Inputs */
@@ -234,33 +76,6 @@ input[type="text"]::placeholder {
 
 /* Map Container */
 .leaflet-container {
-    border-radius: var(--br-lg);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: var(--shadow-lg);
+    border-radius: var(--br-interactible);
     overflow: hidden;
-}
-
-/* Map Info Box */
-.map-info {
-    background: linear-gradient(
-        135deg,
-        rgba(99, 102, 241, 0.2) 0%,
-        rgba(16, 185, 129, 0.2) 100%
-    );
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    padding: 1.5rem;
-    border-radius: var(--br-md);
-    margin-bottom: 1.5rem;
-    font-family: "Courier New", monospace;
-    font-weight: 500;
-    box-shadow: var(--shadow-sm);
-}
-
-/* Grid Layout */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
 }

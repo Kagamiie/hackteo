@@ -1,5 +1,4 @@
 import "../styles/home.css";
-import Surface from "../components/Surface";
 
 function Home() {
   return (

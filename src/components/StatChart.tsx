@@ -43,8 +43,8 @@ function StatChart(props: propsChart) {
     const datas = props.datas
 
     return (
-        <div>
-            <ResponsiveContainer width="100%" height={300}>
+        <div style={{width:"100%", height:"100%"}}>
+            <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={datas} margin={{top: 5,right: 30,left: 20,bottom: 5,}}>
                     <XAxis dataKey="name"/>
                     <Tooltip content={<CustomTooltip/>}/>

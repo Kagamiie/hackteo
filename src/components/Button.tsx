@@ -6,7 +6,7 @@ type propsButton = {
 function Button(props: propsButton) {
   return (
     <button onClick={props.click}>
-      <h1>{props.children}</h1>
+      {props.children}
     </button>
   );
 }

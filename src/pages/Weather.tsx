@@ -22,20 +22,24 @@ function Weather() {
             <div className="right">
                 <div className="chart">
                     <StatChart datas={[
-                        {name: "Monday", pv: 500},
+                        {name: "Monday", pv: 20},
                         {name: "Tuesday", pv: 100},
                         {name: "Wednesday", pv: 125},
-                        {name: "Thursday", pv: 400},
-                        {name: "Friday", pv: 500},
-                        {name: "Saturday", pv: 450},
-                        {name: "Sunday", pv: 500},
+                        {name: "Thursday", pv: 300},
+                        {name: "Friday", pv: 50},
+                        {name: "Saturday", pv: 300},
+                        {name: "Sunday", pv: 400},
                     ]}/>
                 </div>
                 <div className="parameters">
-                    <StatParameter icon="temperature" value="10°" name="Temperature"></StatParameter>
-                    <StatParameter icon="wind" value="10km/h" name="Wind speed"></StatParameter>
-                    <StatParameter icon="rain" value="10%" name="Rain chance"></StatParameter>
-                    <StatParameter icon="humidity" value="19%" name="Humidity"></StatParameter>
+                    <StatParameter
+                    icon="temperature" value="10°" name="Temperature"/>
+                    <StatParameter
+                    icon="wind" value="10km/h" name="Wind speed"/>
+                    <StatParameter
+                    icon="rain" value="10%" name="Rain chance"/>
+                    <StatParameter
+                    icon="humidity" value="19%" name="Humidity"/>
                 </div>
             </div>
         </div>

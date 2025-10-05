@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "../styles/map.css";
 import type { LatLng } from "leaflet";
 
 type propsClick = {
@@ -46,7 +45,7 @@ export default function Map() {
       <div className="map-wrapper">
         <MapContainer
           center={[48.856, 2.352]}
-          zoom={13}
+          zoom={10}
           style={{ height: "600px", width: "100%" }}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

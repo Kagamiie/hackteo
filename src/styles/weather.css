@@ -2,7 +2,7 @@
     background-color: var(--c-surface);
     border-radius: var(--br-interactible);
     overflow: hidden;
-    gap: 16px;
+    gap: var(--ma-smd);
     margin: 0;
 }
 
@@ -10,9 +10,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--ma-m);
+    padding: var(--ma-md);
     gap: 16px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .parameters > .card > .name {
@@ -20,34 +21,18 @@
     justify-content: center;
     align-items: center;
     background-color: var(--c-secondary);
-    padding: var(--ma-m);
+    padding: var(--ma-md);
     width: 100%;
+    box-sizing: border-box;
 }
 
 .parameters {
-    padding: var(--ma-m);
+    padding: var(--ma-md);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
 }
 
-
-
-.dates > .card {
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--br-hard);
-    color: var(--c-txt-s);
-    align-items: center;
-    justify-content: center;
-}
-
-.dates {
-    padding: var(--ma-m);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-}
 
 .main {
     display:flex;
@@ -63,7 +48,7 @@
 }
 
 .main > .right > .chart {
-    padding: var(--ma-m);
+    padding: var(--ma-md);
     box-sizing: border-box;
     width: 100%;
 }
@@ -71,7 +56,7 @@
 .main > .left > .map {
     width: 100%;
     height: 100%;
-    padding: var(--ma-m);
+    padding: var(--ma-md);
     box-sizing: border-box;
 }
 
@@ -79,8 +64,13 @@
     color: var(--c-txt);
 }
 
+.chart {
+    width: 100%;
+    height: 100%;
+}
+
 .chart .tooltip {
-    padding: var(--ma-m);
+    padding: var(--ma-md);
     gap: 0px;
     background-color: #000;
 }
